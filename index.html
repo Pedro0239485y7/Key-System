@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Generator</title>
     <script>
-        // Automatically generate the key when the page loads
+        // Generate the key when the page loads
         window.onload = function() {
             generateKey();
         };
@@ -18,7 +18,7 @@
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
-            // Set the generated key into the span
+            // Set the generated key inside the span element
             document.getElementById('key').innerText = key; 
         }
     </script>
