@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Generator</title>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            generateKey(); // Automatically generate a key when the page loads
+        });
+
         function generateKey() {
             const length = 16; // Set the length of the key
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -12,7 +16,6 @@
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
-            // Display the key in the <span> with id="key"
             document.getElementById('key').innerText = key;
         }
     </script>
@@ -20,8 +23,6 @@
 <body>
     <h1>Key Generator</h1>
     <p>Click the button below to generate a random key:</p>
-    <button onclick="generateKey()">Generate Key</button>
-    <p><strong>Your Key:</strong> <span id="key">No key generated yet</span></p>
+    <p><strong>Your Key:</strong> <span id="key"></span></p>
 </body>
 </html>
-
