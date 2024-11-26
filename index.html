@@ -1,4 +1,10 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator</title>
+   <script>
     window.onload = function() {
         generateKey(); // Automatically generate the key when the page loads
     };
@@ -13,3 +19,11 @@
         document.getElementById('key').innerText = key; // Set the generated key
     }
 </script>
+</head>
+<body>
+    <h1>Key Generator</h1>
+    <p><strong>Your Key:</strong> <span id="key">No key generated yet</span></p>
+    <!-- Remove the button to make it automatic -->
+    <p><strong>Your Generated Key:</strong> <span id="keyDisplay">No key generated yet</span></p>
+</body>
+</html>
