@@ -3,28 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator</title>
-    <script>
-        // Generate the key when the page loads
-        window.onload = function() {
-            generateKey();
-        };
-
-        // Function to generate the key
-        function generateKey() {
-            const length = 16; // Set the length of the key
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let key = '';
-            for (let i = 0; i < length; i++) {
-                key += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            // Set the generated key inside the span element
-            document.getElementById('key').innerText = key; 
-        }
-    </script>
+    <title>Key Generator Test</title>
 </head>
 <body>
-    <h1>Key Generator</h1>
-    <p><strong>Your Key:</strong> <span id="key"></span></p> <!-- The key will be displayed here -->
+    <h1>Key Generator Test</h1>
+    <p><strong>Your Key:</strong> <span id="key">TestKey123</span></p>
 </body>
 </html>
