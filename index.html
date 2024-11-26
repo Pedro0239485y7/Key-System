@@ -1,30 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator</title>
-    <script>
-        // Function to automatically generate a random key
-        function generateKey() {
-            const length = 16; // Set the length of the key
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let key = '';
-            for (let i = 0; i < length; i++) {
-                key += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            document.getElementById('keyDisplay').innerText = key;
-            document.getElementById('key').innerText = key;  // Update the <span> element with the generated key
-        }
+<script>
+    window.onload = function() {
+        generateKey(); // Automatically generate the key when the page loads
+    };
 
-        // Automatically generate the key when the page loads
-        window.onload = generateKey;
-    </script>
-</head>
-<body>
-    <h1>Key Generator</h1>
-    <p><strong>Your Key:</strong> <span id="key">No key generated yet</span></p>
-    <!-- Remove the button to make it automatic -->
-    <p><strong>Your Generated Key:</strong> <span id="keyDisplay">No key generated yet</span></p>
-</body>
-</html>
+    function generateKey() {
+        const length = 16; // Set the length of the key
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let key = '';
+        for (let i = 0; i < length; i++) {
+            key += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        document.getElementById('key').innerText = key; // Set the generated key
+    }
+</script>
