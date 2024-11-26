@@ -12,7 +12,8 @@
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
-            document.getElementById('keyDisplay').innerText = key;
+            // Display the key in the <span> with id="key"
+            document.getElementById('key').innerText = key;
         }
     </script>
 </head>
@@ -20,6 +21,7 @@
     <h1>Key Generator</h1>
     <p>Click the button below to generate a random key:</p>
     <button onclick="generateKey()">Generate Key</button>
-    <p><strong>Your Key:</strong> <span id="keyDisplay">No key generated yet</span></p>
+    <p><strong>Your Key:</strong> <span id="key">No key generated yet</span></p>
 </body>
 </html>
+
