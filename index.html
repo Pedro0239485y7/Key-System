@@ -9,21 +9,34 @@
 
     <p><strong>Your Key:</strong> <span id="key">Loading key...</span></p>
 
+    <button onclick="generateKey()">Generate New Key</button>
+
     <script>
-        (function() {
-            // Set the length of the key and possible characters
+        // Generate a random key if not already generated
+        function generateKey() {
             const length = 16; // Set the length of the key
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let key = '';
-
-            // Generate a random key
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
 
-            // Insert the generated key into the span with id 'key'
+            // Store the key in localStorage so it persists across page refreshes
+            localStorage.setItem('generatedKey', key);
+
+            // Update the displayed key
             document.getElementById('key').innerText = key;
-        })();
+        }
+
+        // Check if a key is already stored in localStorage
+        window.onload = function() {
+            const storedKey = localStorage.getItem('generatedKey');
+            if (storedKey) {
+                document.getElementById('key').innerText = storedKey;
+            } else {
+                document.getElementById('key').innerText = "No key generated yet.";
+            }
+        };
     </script>
 
 </body>
