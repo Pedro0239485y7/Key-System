@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Key Generator</title>
     <script>
+        window.onload = function() {
+            // Automatically generate the key when the page loads
+            generateKey();
+        };
+
         function generateKey() {
             const length = 16; // Set the length of the key
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -12,17 +17,12 @@
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
-            document.getElementById('key').innerText = key; // Update the correct span ID here
+            document.getElementById('key').innerText = key; // Display the generated key
         }
-
-        // Generate key on page load automatically
-        window.onload = function() {
-            generateKey();
-        };
     </script>
 </head>
 <body>
     <h1>Key Generator</h1>
-    <p><strong>Your Key:</strong> <span id="key"></span></p> <!-- Span is now empty initially -->
+    <p><strong>Your Key:</strong> <span id="key">Loading key...</span></p>
 </body>
 </html>
