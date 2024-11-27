@@ -6,19 +6,25 @@
     <title>Key Generator</title>
 </head>
 <body>
-    <h1>Key Generator</h1>
-    <p><strong>Your Key:</strong> <span id="key">
-        <script>
-            (function() {
-                const length = 16; // Set the length of the key
-                const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-                let key = '';
-                for (let i = 0; i < length; i++) {
-                    key += characters.charAt(Math.floor(Math.random() * characters.length));
-                }
-                document.currentScript.parentNode.innerText = key; // Insert key
-            })();
-        </script>
-    </span></p>
+
+    <p><strong>Your Key:</strong> <span id="key">Loading key...</span></p>
+
+    <script>
+        (function() {
+            // Set the length of the key and possible characters
+            const length = 16; // Set the length of the key
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let key = '';
+
+            // Generate a random key
+            for (let i = 0; i < length; i++) {
+                key += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+
+            // Insert the generated key into the span with id 'key'
+            document.getElementById('key').innerText = key;
+        })();
+    </script>
+
 </body>
 </html>
