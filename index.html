@@ -3,52 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key Generator1</title>
 </head>
 <body>
 
-    <p><strong>Your Key:</strong> <span id="key">Loading key...</span></p>
-
-    <button onclick="generateKey()">Generate New Key</button>
+    <span id="key"></span>
 
     <script>
-        function crc32(str) {
-            let crc = 0xffffffff;
-            for (let i = 0; i < str.length; i++) {
-                crc ^= str.charCodeAt(i);
-                for (let j = 8; j; j--) {
-                    crc = (crc >>> 1) ^ ((crc & 1) ? 0xedb88320 : 0);
-                }
-            }
-            return (crc ^ 0xffffffff) >>> 0;
-        }
-        
-        // Generate a random key if not already generated
-        function generateKey() {
-            const length = 16; // Set the length of the key
+        (function() {
+            const length = 16;  // Length of the key
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let key = '';
             for (let i = 0; i < length; i++) {
                 key += characters.charAt(Math.floor(Math.random() * characters.length));
             }
 
-            let keyChecksum = crc32(key);
-            let totalKey = key + '-' + keyChecksum;
-            
-            // Update the displayed key
-            document.getElementById('key').innerText = totalKey;
-        }
+            // Save the generated key to localStorage
+            localStorage.setItem('generatedKey', key);
 
-        // Check if a key is already stored in localStorage
-        window.onload = function() {
-            const storedKey = localStorage.getItem('generatedKey');
-            if (storedKey) {
-                document.getElementById('key').innerText = storedKey;
-            } else {
-                document.getElementById('key').innerText = "No key generated yet.";
-            }
-        };
+            // Display the generated key
+            document.getElementById('key').innerText = key;
+        })();
     </script>
 
 </body>
 </html>
+
