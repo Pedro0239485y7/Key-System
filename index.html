@@ -3,28 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Keys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #keyDisplay {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #333;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
 
-    <span id="key"></span>
+    <h2>Current Key:</h2>
+    <div id="keyDisplay">Loading...</div>
 
     <script>
-        (function() {
-            const length = 16;  // Length of the key
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            let key = '';
-            for (let i = 0; i < length; i++) {
-                key += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
+        const keys = [
+            "VNS8KXUUEQ700HVKU85YOE",
+            "B3ZIV7F0SEM54YPGU4UIX4",
+            "QPPBWJ6ETLC2E4FL3UUN4J",
+            "D1WAWMJYMQDSDNNWH2B933",
+            "ZLGNIXMWEJQCVP9B8IUGF9"
+        ];
 
-            // Save the generated key to localStorage
-            localStorage.setItem('generatedKey', key);
+        let currentIndex = 0;
 
-            // Display the generated key
-            document.getElementById('key').innerText = key;
-        })();
+        function updateKey() {
+            document.getElementById("keyDisplay").innerText = keys[currentIndex];
+            currentIndex = (currentIndex + 1) % keys.length;
+        }
+
+        updateKey(); // Show the first key immediately
+        setInterval(updateKey, 120000); // Change the key every 2 minutes
     </script>
 
 </body>
 </html>
-
